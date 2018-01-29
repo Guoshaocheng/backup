@@ -1,11 +1,11 @@
--------------------------- COMMON SET--------------
+"-------------------------- COMMON SET--------------
 set nocompatible
 syntax on
 set number
 set relativenumber
 set background=light
 
- prevent backup file (~)
+"prevent backup file (~)
 set nobackup
 set noundofile
 set noswapfile
@@ -18,14 +18,14 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
-------------------------Define Leader Key------------
+"------------------------Define Leader Key------------
 let mapleader = "["
 
-------------------------Insert Mode------------------
+"------------------------Insert Mode------------------
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-------------------------Normal Mode------------------
+"------------------------Normal Mode------------------
 nnoremap <up>    <nop>
 nnoremap <down>  <nop>
 nnoremap <left>  <nop>
