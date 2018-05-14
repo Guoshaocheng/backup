@@ -62,12 +62,14 @@ snippet mod
 		${0}
 	endmodule
 
+###################
 # Perlsonal setting
+###################
 # counter block
 snippet cnt
-	always @ (posedge clk or negedge rst_n) begin
+	${0}always @ (posedge clk or negedge rst_n) begin
 		if (!rst_n) begin
-			${0:cnt} <= 0;
+			cnt <= 0;
 		end
 		else if (add_cnt) begin
 			if (end_cnt)
@@ -76,6 +78,9 @@ snippet cnt
 				cnt <= cnt + 1;
 		end
 	end
+
+	assign add_cnt = flag ;
+	assign end_cnt = add_cnt && ( cnt == CNT - 1 ) ;
 
 # Always block
 snippet alw
@@ -87,3 +92,79 @@ snippet alw
 			${3}
 		end
 	end
+
+# initial block
+snippet ini
+	initial begin
+		${1}
+	end
+
+# state machine -- Current state
+snippet sm1
+	always @( posedge clk or negedge rst_n ) begin
+		if ( !rst_n ) begin
+			state_c <= ${1:S00} ;
+		end
+		else begin
+			state_c <= state_n ;
+		end
+	end
+
+# state machine -- Next state
+snippet sm2
+	always @( * ) begin
+		case ( state_c )
+			S00 : begin
+				if ( ${1:s00_to_s11} ) begin
+					state_n = ${2:S11} ;
+				end
+				else begin
+					state_n = state_c ;
+				end
+			end
+
+			default : begin
+				state_n = IDLE ;
+		endcase
+	end
+
+# state machine -- Transfer condition
+snippet sm3
+	assign ${1:s00_to_s11} = ( state_c == ${2:S00} ) && end_cnt ;
+
+# state machine -- Output
+snippet sm4
+	always @( posedge clk or negedge rst_n ) begin
+		if ( !rst_n ) begin
+			${1:dout} = 0 ;
+		end
+		else if ( state_c == ${2:S00} ) begin
+			${3:dout} = 0 ;
+		end
+	end
+
+# state machine -- gen x
+snippet smx
+	always @( * ) begin
+		if ( state_c == ${1:S00} ) begin
+			x = ${2:1} ;
+		end
+		else if ( state_c == ${3:S11} ) begin
+			x = ${4:2} ;
+		end
+		else begin
+			x = ${5:3} ;
+		end
+	end
+
+# input signal 
+snippet ipd
+	input 	[${1}:${2:0}]     ${3} ;
+snippet ip
+	input			   ${1} ;
+
+# output signal 
+snippet opd
+	output	[${1}:${2:0}]     ${3} ;
+snippet op
+	output			  ${1} ;
