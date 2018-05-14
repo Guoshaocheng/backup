@@ -31,3 +31,4 @@ alias cd="cdls"
 alias vsim="questasim.exe"
 
 alias snip="cd ~/.vim/bundle/vim-snippets/snippets/"
+alias gpom="git push origin master"
