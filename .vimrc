@@ -42,6 +42,15 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
+" fast exit
+nnoremap <leader>q :q<cr>
+" fast exit all 
+nnoremap <leader>a :qa<cr>
+" fast save and exit
+nnoremap <leader>w :wq<cr>
+" fast save 
+nnoremap <leader>s :w<cr>
+
 "---------------------------COMMAND MODE-------------
 cnoremap <c-n> <DOWN>
 cnoremap <c-p> <UP>

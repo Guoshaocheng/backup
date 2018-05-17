@@ -4,9 +4,11 @@
 [alias]
     co = checkout
     ci = commit
-    p = push
+    p  = push
     br = branch
     st = status
-    lg = git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit --
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit --
 [color]
     ui = true
+[core]
+    editor = vim
