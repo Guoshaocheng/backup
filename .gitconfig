@@ -1,0 +1,11 @@
+[user]
+	name = beca
+	email = ougsch@gmail.com
+[alias]
+    co = checkout
+    ci = commit
+    p = push
+    br = branch
+    st = status
+[color]
+    ui = true
